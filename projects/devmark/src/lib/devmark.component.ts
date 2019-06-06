@@ -18,6 +18,7 @@ import { Component, OnInit, Input } from '@angular/core';
       background: red;
       width: 100px;
       height: 100px;
+      z-index: 9999;
     }
     div:hover {
       opacity: 0.5;

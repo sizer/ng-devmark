@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'lib-devmark',
   template: `
     <div
       (click)="hideDevmark()"
-      [ngClass]="{ 'hidden': clicked }">
-      devmark works!
+      [ngClass]="{ 'hidden': disable || clicked }">
+      {{displayText}}
     </div>
   `,
   styles: [`
@@ -29,11 +29,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevmarkComponent implements OnInit {
   clicked: boolean = false
+  @Input() disable: boolean = false
+  @Input() displayText: string = 'devmark works!'
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   hideDevmark() {
     this.clicked = true

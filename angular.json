@@ -118,6 +118,41 @@
           }
         }
       }
+    },
+    "devmark": {
+      "projectType": "library",
+      "root": "projects/devmark",
+      "sourceRoot": "projects/devmark/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/devmark/tsconfig.lib.json",
+            "project": "projects/devmark/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/devmark/src/test.ts",
+            "tsConfig": "projects/devmark/tsconfig.spec.json",
+            "karmaConfig": "projects/devmark/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/devmark/tsconfig.lib.json",
+              "projects/devmark/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ng-devmark"
 }
